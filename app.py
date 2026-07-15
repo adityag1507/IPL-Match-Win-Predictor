@@ -53,7 +53,12 @@ cities = sorted([
 
 @app.route("/")
 def home():
-    return "Railway is working!"
+    return render_template(
+        "index.html",
+        teams=teams,
+        cities=cities,
+        team_logos=team_logos
+    )
 
 @app.route('/predict', methods=['POST'])
 def predict():

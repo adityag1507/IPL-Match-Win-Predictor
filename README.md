@@ -1,62 +1,143 @@
-# 🏏 IPL Match Win Predictor
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Flask](https://img.shields.io/badge/Flask-Web_App-black)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+# IPL Match Win Predictor
 
-A machine learning-powered web application that predicts the winning probability of the chasing team in an IPL match using the current match situation.
+A production-ready Machine Learning web application that predicts the winning probability of the chasing team during the second innings of an IPL match based on the live match situation.
 
-The application combines a trained Scikit-Learn model with a Flask backend to deliver real-time predictions through a responsive and modern web interface.
-
----
-
-## Live Demo
-
-> Coming Soon (Render)
+**Live Demo:** https://ipl-match-win-predictor-n4os.onrender.com
 
 ---
 
 ## Overview
 
-Predicting the outcome of a T20 cricket match is a challenging problem because the probability changes dynamically after every ball.
+IPL Match Win Predictor estimates the probability of victory for both teams during a run chase using a trained Machine Learning pipeline.
 
-This project estimates the winning probability of the chasing team using historical IPL match data and important match-state features such as current score, wickets remaining, overs completed, current run rate, and required run rate.
+The application takes the current match situation—including teams, venue, score, target, overs, and wickets—and generates real-time winning probabilities along with useful match statistics.
 
-The model is integrated into a Flask application that allows users to interactively enter match details and receive instant probability predictions.
+The project is built with Flask, Scikit-Learn and deployed on Render.
 
 ---
 
 ## Features
 
-- Machine Learning-based IPL win probability prediction
-- Supports all IPL 2025 franchises
-- Responsive web interface for desktop and mobile devices
-- Real-time prediction using a trained Scikit-Learn model
-- Match summary including:
-  - Runs Needed
-  - Balls Left
-  - Wickets Remaining
-  - Current Run Rate (CRR)
-  - Required Run Rate (RRR)
-- Team logos
-- Input validation for invalid match scenarios
-- Modern black and red user interface
+- Real-time IPL win probability prediction
+- Machine Learning prediction pipeline
+- Probability visualization for both teams
+- Team logo integration
+- Match summary dashboard
+- Runs Required calculation
+- Current Run Rate (CRR)
+- Required Run Rate (RRR)
+- Balls Remaining
+- Wickets Remaining
+- Responsive dark-themed interface
+- Production deployment on Render
 
 ---
 
-## Machine Learning Pipeline
+## Live Demo
 
-The prediction model follows the following workflow:
-
-1. Historical IPL match data preprocessing
-2. Feature engineering
-3. Model training using Scikit-Learn
-4. Model serialization using Pickle
-5. Flask-based deployment for real-time inference
+https://ipl-match-win-predictor-n4os.onrender.com
 
 ---
 
-## Model Input Features
+## Screenshots
+
+### Home Page
+
+<p align="center">
+<img src="assets/home.png" width="900">
+</p>
+
+---
+
+### Prediction Result
+
+<p align="center">
+<img src="assets/prediction.png" width="900">
+</p>
+
+---
+
+### Project Demo
+
+<p align="center">
+<img src="assets/demo.gif" width="900">
+</p>
+
+---
+
+## Tech Stack
+
+### Backend
+
+- Python
+- Flask
+- Jinja2
+
+### Machine Learning
+
+- Scikit-Learn
+- Pandas
+- NumPy
+
+### Frontend
+
+- HTML5
+- CSS3
+
+### Deployment
+
+- Render
+- Gunicorn
+
+---
+
+## Machine Learning Workflow
+
+```
+Historical IPL Dataset
+        │
+        ▼
+Data Cleaning
+        │
+        ▼
+Feature Engineering
+        │
+        ▼
+Preprocessing Pipeline
+        │
+        ▼
+Logistic Regression Model
+        │
+        ▼
+Probability Prediction
+        │
+        ▼
+Flask Web Application
+```
+
+---
+
+## Application Workflow
+
+```
+User Input
+     │
+     ▼
+Feature Engineering
+     │
+     ▼
+Scikit-Learn Pipeline
+     │
+     ▼
+Win Probability Prediction
+     │
+     ▼
+Interactive Dashboard
+```
+
+---
+
+## Input Parameters
 
 The model predicts match outcome using:
 
@@ -67,95 +148,75 @@ The model predicts match outcome using:
 - Current Score
 - Overs Completed
 - Wickets Lost
+
+From these inputs, the application computes additional match features including:
+
 - Runs Left
 - Balls Left
-- Current Run Rate (CRR)
-- Required Run Rate (RRR)
+- Wickets Remaining
+- Current Run Rate
+- Required Run Rate
 
----
-
-## Technology Stack
-
-### Backend
-
-- Python
-- Flask
-
-### Machine Learning
-
-- Scikit-Learn
-- Pandas
-- NumPy
-- Pickle
-
-### Frontend
-
-- HTML5
-- CSS3
-
-### Development
-
-- Jupyter Notebook
-- PyCharm
+before generating the final prediction.
 
 ---
 
 ## Project Structure
 
-```text
+```
 IPL_Match_Predictor/
+│
+├── static/
+│   ├── logos/
+│   ├── favicon.png
+│   └── style.css
+│
+├── templates/
+│   └── index.html
+│
+├── assets/
+│   ├── demo.gif
+│   ├── home.png
+│   └── prediction.png
 │
 ├── app.py
 ├── pipe.pkl
 ├── Match.csv
 ├── Delivery.csv
 ├── requirements.txt
-├── README.md
-├── .gitignore
-│
-├── templates/
-│   └── index.html
-│
-├── static/
-│   ├── style.css
-│   ├── favicon.png
-│   └── logos/
-│
-└── screenshots/
-    ├── home.png
-    ├── prediction.png
-    └── mobile.png
+├── ProcFile
+└── README.md
 ```
 
 ---
 
-## Installation
+## Getting Started
 
-Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/adityag1507/IPL-Match-Win-Predictor.git
 ```
 
-Move into the project directory
+### Navigate to the project
 
 ```bash
 cd IPL-Match-Win-Predictor
 ```
 
-Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+### Run the application
 
 ```bash
 python app.py
 ```
 
-Open
+### Open in browser
 
 ```
 http://127.0.0.1:5000
@@ -163,33 +224,37 @@ http://127.0.0.1:5000
 
 ---
 
-## Screenshots
+## Deployment
 
-### Home Page
+The application is deployed on **Render** using **Gunicorn** as the production WSGI server.
 
-![Home](screenshots/home.png)
+During deployment, multiple production issues were resolved, including:
 
----
-
-### Prediction Result
-
-![Prediction](screenshots/prediction.png)
-
----
-
-### Mobile View
-
-<img src="screenshots/mobile.png" width="350">
+- Python runtime compatibility
+- Dependency version conflicts
+- Scikit-Learn model serialization compatibility
+- Production deployment configuration
+- Requirements management
 
 ---
 
 ## Future Enhancements
 
-- Live IPL match integration
-- Interactive probability visualizations
-- Player statistics integration
-- Advanced analytics dashboard
-- Historical match comparison
+- Support latest IPL seasons
+- Live match API integration
+- Player statistics
+- Interactive analytics dashboard
+- Match momentum visualization
+- Win probability progression graph
+- Team performance insights
+
+---
+
+## Repository
+
+GitHub Repository
+
+https://github.com/adityag1507/IPL-Match-Win-Predictor
 
 ---
 
@@ -197,8 +262,12 @@ http://127.0.0.1:5000
 
 **Aditya Goyal**
 
-GitHub: https://github.com/adityag1507
+GitHub
 
-LinkedIn: https://www.linkedin.com/in/aditya-goyal-14161b402
+https://github.com/adityag1507
+
+LinkedIn
+
+https://www.linkedin.com/in/aditya-goyal-14161b402
 
 ---
